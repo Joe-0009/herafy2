@@ -1,0 +1,378 @@
+
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000; /* Orange */
+    color: #fff;
+    padding: 60px 20px;
+    position: relative;
+    text-align: center;
+    height: 50vh;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    font-weight: 100;
+}
+
+.hero-content h1{
+    font-weight: 600;
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero-content {
+    z-index: 1;
+    position: relative;
+}
+
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.btn-box a {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-primary {
+    background-color: #ffcc00; /* Yellow */
+    color: #333;
+}
+
+.btn-primary:hover {
+    background-color: #e6b800;
+    color: #fff;
+}
+
+.btn-secondary {
+    background-color: #2c2c2c; /* Dark Blue/Black */
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background-color: #1a1a1a;
+    color: #ffcc00;
+}
+
+/* About Us Section */
+.about-us {
+    padding: 60px 20px;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+.about-us .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-us h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #e67935; /* Orange */
+}
+
+.about-us p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* How It Works Section */
+.how-it-works {
+    padding: 60px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.how-it-works .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.how-it-works h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #e67935; /* Orange */
+}
+
+.how-it-works h3 {
+    font-size: 28px;
+    margin-top: 20px;
+    color: #2c2c2c; /* Dark Blue/Black */
+}
+
+.how-it-works p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #666;
+}
+
+/* Features Section */
+.features {
+    padding: 60px 20px;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+.features .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.features h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #e67935; /* Orange */
+}
+
+.feature {
+    margin-bottom: 40px;
+}
+
+.feature-image {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.feature-content {
+    text-align: center;
+}
+
+.feature-content h3 {
+    font-size: 28px;
+    margin-top: 20px;
+    color: #2c2c2c; /* Dark Blue/Black */
+}
+
+.feature-content p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #666;
+}
+
+/* Testimonials Section */
+.testimonials {
+    padding: 60px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.testimonials .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.testimonials h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #e67935; /* Orange */
+}
+
+.testimonial {
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.testimonial p {
+    font-size: 18px;
+    font-style: italic;
+    color: #666;
+}
+
+.testimonial span {
+    font-size: 16px;
+    font-weight: bold;
+    color: #2c2c2c; /* Dark Blue/Black */
+}
+
+/* FAQ Section */
+.faq {
+    padding: 60px 20px;
+    background-color: #f8f9fa;
+}
+
+.faq .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #e67935; /* Orange */
+}
+
+.faq-item {
+    margin-bottom: 20px;
+}
+
+.faq-item h3 {
+    font-size: 24px;
+    color: #2c2c2c; /* Dark Blue/Black */
+}
+
+.faq-item p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Success Stories Section */
+.success-stories {
+    padding: 60px 20px;
+    background-color: #d4d4d4;
+    text-align: center;
+}
+
+.success-stories .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.success-stories h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #e67935; /* Orange */
+}
+
+.story {
+    margin-bottom: 40px;
+}
+
+.story-image {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.story p {
+    font-size: 18px;
+    font-style: italic;
+    color: #666;
+}
+
+.story span {
+    font-size: 16px;
+    font-weight: bold;
+    color: #2c2c2c; /* Dark Blue/Black */
+}
+
+/* Contact Us Section */
+.contact-us {
+    padding: 60px 20px;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+.contact-us .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-us h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #e67935; /* Orange */
+}
+
+.contact-us p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #666;
+}
+
+.contact-info {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Call to Action Section */
+.call-to-action {
+    padding: 80px 20px;
+    background-color: #c74d3a; /* Dark Red */
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    margin: 40px 0;
+}
+
+.call-to-action .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.call-to-action h2 {
+    color: #ffcc00; /* Yellow */
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.call-to-action p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    color: #ddd;
+}
+
+.call-to-action .btn-box {
+    display: flex;
+    justify-content: center;
+}
+
+.call-to-action .btn-box a {
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 4px;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.call-to-action .btn-primary {
+    background-color: #ffcc00; /* Yellow */
+    color: #333;
+    font-weight: bold;
+}
+
+.call-to-action .btn-primary:hover {
+    background-color: #e6b800;
+}

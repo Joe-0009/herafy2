@@ -1,0 +1,46 @@
+<div class="card job-detail-card">
+    <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h1 class="job-title">{{ job.title }}</h1>
+            <span class="status-badge">{{ job.status.value }}</span>
+        </div>
+        <hr class="title-divider">
+        <p class="job-description">{{ job.description }}</p>
+        <div class="job-meta">
+            <p class="meta-item">Posted by: {{ job.poster.first_name }} {{ job.poster.last_name }}</p>
+            <p class="meta-item">Budget: {{ job.budget }}</p>
+            <p class="meta-item">Expected Duration: {{ job.expected_duration }}</p>
+            <p class="meta-item">Required Skills: {{ job.required_skills }}</p>
+        </div>
+        <div class="job-pictures mt-3">
+            {% if job.pictures %}
+            <div class="d-flex flex-wrap">
+                {% for picture in job.pictures %}
+                <img src="{{ url_for('static', filename='uploads/' + picture.filename) }}" alt="Job Picture" class="job-image mr-2 mb-2" onclick="showImageModal('{{ url_for('static', filename='uploads/' + picture.filename) }}')">
+                {% endfor %}
+            </div>
+            {% else %}
+            <p class="no-pictures">No pictures available</p>
+            {% endif %}
+        </div>
+        <h2 class="applications-title mt-5">Applications</h2>
+        <div class="applications-list">
+            {% for application in applications %}
+            <div class="application-item">
+                <div class="applicant-info d-flex align-items-center">
+                    <img src="{{ url_for('static', filename='profile_pics/' + (application.applicant.profile_picture or 'default.png')) }}" alt="Profile Picture" class="applicant-image">
+                    <h3 class="applicant-name ml-3">{{ application.applicant.first_name }} {{ application.applicant.last_name }}</h3>
+                </div>
+                {% if job.status == ApplicationStatus.OPEN %}
+                <form method="POST" action="{{ url_for('job.accept_application', job_id=job.id, application_id=application.id) }}" class="mt-2">
+                    {{ form.hidden_tag() }}
+                    <button type="submit" class="btn btn-accept">ACCEPT</button>
+                </form>
+                {% endif %}
+            </div>
+            {% else %}
+            <p class="no-applications">No applications yet</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>

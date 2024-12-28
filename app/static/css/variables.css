@@ -1,0 +1,22 @@
+/* variables.css */
+
+/* Define CSS variables for color themes */
+:root {
+    --primary-color: #e67935; /* Orange color from the provided image */
+    --primary-hover-color: #c65b2c; /* Darker shade of orange for hover effects */
+    --secondary-color: #2c2c2c; /* Dark Blue/Black color from the provided image */
+    --background-color: #ffffff; /* White color used for the background of the navbar and other elements */
+    --border-color: #eaeaea; /* Light grey color used for borders and dividers */
+    --rating-color: #ffcc00; /* Yellow color for rating stars */
+    --job-type-color: #e67935; /* Orange color for job type */
+    --accepted-color: #28a745; /* Green color for accepted status */
+    --rejected-color: #e7abb1; /* Red color for rejected status */
+    --pending-color: #333333; /* Dark grey color for pending status */
+}
+
+/* base.css or global.css */
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Ensure to include your global CSS file in your base HTML template if not already included */

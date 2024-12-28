@@ -1,0 +1,100 @@
+/* reviews.css */
+.reviews-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.reviews-container h3 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.average-rating {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.average-rating p {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.review {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+}
+
+.stars {
+    display: inline-block;
+}
+
+.star {
+    color: #ddd;
+    font-size: 24px;
+    display: inline-block;
+    transition: color 0.2s ease-in-out;
+}
+
+.star.filled {
+    color: #f39c12;
+}
+
+.star.half-filled {
+    position: relative;
+    color: #ddd;
+}
+
+.star.half-filled::after {
+    content: '★';
+    color: #f39c12;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    overflow: hidden;
+}
+
+.reviewer {
+    font-style: italic;
+    color: #666;
+}
+
+.job-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.comment {
+    color: #333;
+}
+
+.no-reviews {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+}

@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% block title %}Search Workers{% endblock %}
+{% block content %}
+<!-- Main container for the search section -->
+<div class="search-container">
+    <!-- Overlay to darken the background image -->
+    <div class="search-overlay"></div>
+    <!-- Container for search title and form -->
+    <div class="search-content">
+        <h1>SEARCH FOR PROFESSIONALS</h1>
+        <form method="POST" action="{{ url_for('worker.search_workers') }}" class="search-form" id="search-form">
+            {{ form.hidden_tag() }}
+            <!-- Container for search input fields and button -->
+            <div class="search-inputs">
+                {{ form.profession(class="form-control", placeholder="Profession") }}
+                {{ form.location(class="form-control", placeholder="City") }}
+                {{ form.submit(class="search-btn", value="SEARCH") }}
+            </div>
+        </form>
+    </div>
+    <!-- Indicators for background image slider -->
+    <div class="search-indicators">
+        <span class="indicator active"></span>
+        <span class="indicator"></span>
+        <span class="indicator"></span>
+    </div>
+    <!-- Loading spinner -->
+    <div class="loading-spinner" id="loading-spinner" style="display: none;">
+        <i class="fas fa-spinner fa-spin"></i>
+    </div>
+</div>
+
+{% if results %}
+<!-- Results section -->
+<div class="container mt-4">
+    <!-- Centered headings -->
+    <div class="text-center mb-4">
+        <h2>Our Professionals</h2>
+        <p>Latest added</p>
+    </div>
+    <!-- Worker list -->
+    <div class="worker-list">
+        {% for worker in results %}
+        <!-- Individual worker item -->
+        <a href="{{ url_for('profile.view_profile', user_id=worker.id) }}" class="worker-item-link">
+            <div class="worker-item">
+                <!-- Worker profile picture -->
+                {% if worker.profile_picture %}
+                    <img src="{{ url_for('static', filename='profile_pics/' + worker.profile_picture) }}" alt="{{ worker.first_name }} {{ worker.last_name }}" class="worker-image">
+                {% else %}
+                    <img src="{{ url_for('static', filename='profile_pics/default.png') }}" alt="Default Profile Picture" class="worker-image">
+                {% endif %}
+                <!-- Worker information -->
+                <div class="worker-info">
+                    <h3 class="worker-name">{{ worker.first_name }} {{ worker.last_name }}</h3>
+                    <p class="worker-description">{{ worker.description or "No description available" }}</p>
+                    <div class="worker-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>{{ worker.location }}</span>
+                    </div>
+                </div>
+                <!-- Worker rating -->
+                <div class="worker-rating">
+                    <div class="rating-stars">
+                        {% for _ in range(worker.rating|default(0)|int) %}
+                        <i class="fas fa-star"></i>
+                        {% endfor %}
+                        {% for _ in range(5 - worker.rating|default(0)|int) %}
+                        <i class="far fa-star"></i>
+                        {% endfor %}
+                    </div>
+                    <span class="review-count">{{ worker.review_count or 0 }} Reviews</span>
+                </div>
+                <!-- Worker category and post date -->
+                <span class="worker-category">{{ worker.profession }}</span>
+                <span class="worker-posted">Posted {{ worker.created_at|timeago }}</span>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% else %}
+<!-- No results message -->
+<div class="container mt-4">
+    <p>No results found. Please try a different search.</p>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block javascript %}
+<!-- Font Awesome kit (replace with your actual kit URL) -->
+<script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+<!-- Script for changing background images -->
+<script>
+    const backgrounds = [
+        'url("/static/images/background1.jpg")',
+        'url("/static/images/background2.jpg")',
+        'url("/static/images/background3.jpg")'
+    ];
+    let currentBg = 0;
+
+    function changeBackground() {
+        currentBg = (currentBg + 1) % backgrounds.length;
+        document.querySelector('.search-container').style.backgroundImage = backgrounds[currentBg];
+        
+        // Update indicators
+        document.querySelectorAll('.indicator').forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === currentBg);
+        });
+    }
+
+    setInterval(changeBackground, 5000); // Change every 5 seconds
+
+    // Show loading spinner on form submit
+    document.getElementById('search-form').addEventListener('submit', function() {
+        document.getElementById('loading-spinner').style.display = 'block';
+    });
+</script>
+{% endblock %}

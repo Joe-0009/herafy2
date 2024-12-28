@@ -1,0 +1,167 @@
+/* Common styles for authentication pages */
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+/* Overlay to darken the background slightly */
+.auth-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Login-specific styles */
+.login-page {
+    justify-content: flex-start;
+    background-image: url('/static/images/login-background.jpg');
+}
+
+.login-page .auth-form-container {
+    margin-left: 5%;
+}
+
+/* Signup-specific styles */
+.signup-page {
+    justify-content: flex-end;
+    background-image: url('/static/images/signup-background.jpg');
+}
+
+.signup-page .auth-form-container {
+    margin-right: 5%;
+}
+
+/* Form container */
+.auth-form-container {
+    width: 100%;
+    max-width: 450px;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Form wrapper */
+.auth-form-wrapper {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Page title */
+.auth-title {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Page subtitle */
+.auth-subtitle {
+    color: var(--secondary-color);
+    margin-bottom: 2rem;
+}
+
+/* Form group */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+/* Form labels */
+.form-label {
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+/* Form inputs */
+.form-control {
+    border: none;
+    border-bottom: 2px solid var(--border-color);
+    border-radius: 0;
+    padding: 0.5rem 0;
+    transition: border-color 0.3s;
+    background-color: transparent;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: var(--primary-color);
+}
+
+/* Submit button */
+.btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover-color);
+}
+
+/* Footer */
+.auth-footer {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.auth-footer a {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* Remember me checkbox */
+.form-check {
+    margin-bottom: 1rem;
+}
+
+.form-check-input {
+    margin-right: 0.5rem;
+}
+
+/* Error messages */
+.text-danger {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+/* Row for first and last name fields */
+.form-row {
+    display: flex;
+    margin-right: -5px;
+    margin-left: -5px;
+}
+
+.form-row > .form-group {
+    flex: 1;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+/* Responsive design for mobile devices */
+@media (max-width: 768px) {
+    .auth-page {
+        justify-content: center;
+    }
+
+    .auth-form-container {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 1rem;
+    }
+
+    .auth-form-wrapper {
+        padding: 1.5rem;
+    }
+}

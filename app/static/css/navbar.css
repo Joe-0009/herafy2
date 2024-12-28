@@ -1,0 +1,81 @@
+/* navbar.css */
+
+/* Navbar container */
+.navbar {
+    background-color: var(--background-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0 20px;
+}
+
+/* Navbar brand (logo and name) */
+.navbar-brand {
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+}
+
+/* Logo image within the navbar brand */
+.navbar-brand img {
+    max-height: 30px;
+    margin-right: 10px;
+}
+
+/* Navbar navigation container */
+.navbar-nav {
+    display: flex;
+    align-items: center;
+}
+
+/* Individual navigation item */
+.nav-item {
+    margin: 0 10px;
+}
+
+/* Navigation link styling */
+.nav-link {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--secondary-color);
+    padding: 10px 0;
+    position: relative;
+}
+
+/* Navigation link hover effect */
+.nav-link:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* Active navigation link */
+.nav-link.active {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* Navbar toggler button */
+.navbar-toggler {
+    border: none;
+    background-color: var(--background-color);
+    color: var(--secondary-color);
+}
+
+/* Navbar toggler icon */
+.navbar-toggler-icon {
+    background-image: none;
+    color: var(--secondary-color);
+}
+
+/* Custom icon for the navbar toggler */
+.navbar-toggler .fa-bars {
+    font-size: 24px;
+    color: var(--secondary-color);
+}
+
+/* Navbar toggler icon hover effect */
+.navbar-toggler:hover .fa-bars {
+    color: var(--primary-color);
+}

@@ -1,0 +1,44 @@
+<!-- reviews.html -->
+<div class="reviews-container">
+    <h3>Reviews</h3>
+    
+    {% if reviews %}
+        <div class="average-rating">
+            <p>Average Rating:</p>
+            <div class="stars">
+                {% for i in range(5) %}
+                    {% if i < average_rating|round(0, 'floor') %}
+                        <span class="star filled">★</span>
+                    {% elif i < average_rating and i + 1 > average_rating %}
+                        <span class="star half-filled">★</span>
+                    {% else %}
+                        <span class="star">☆</span>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        
+        {% for review in reviews %}
+        <div class="review">
+            <div class="review-header">
+                <div class="rating">
+                    <div class="stars">
+                        {% for i in range(5) %}
+                            {% if i < review.rating %}
+                                <span class="star filled">★</span>
+                            {% else %}
+                                <span class="star">☆</span>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <p class="reviewer">By: {{ review.reviewer.username }}</p>
+            </div>
+            <p class="job-title">For Job: {{ review.job.title }}</p>
+            <p class="comment">{{ review.comment }}</p>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p class="no-reviews">No reviews yet.</p>
+    {% endif %}
+</div>
