@@ -1,0 +1,38 @@
+/* add_skill.css */
+
+/* Container for the form */
+.container {
+    margin-top: 1.5rem;
+}
+
+/* Heading for the form */
+h2.text-center {
+    color: var(--primary-color);
+}
+
+/* Form group styling */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+/* Form label styling */
+.form-label {
+    color: var(--secondary-color);
+}
+
+/* Form control styling */
+.form-control {
+    border: 1px solid var(--border-color);
+    border-radius: 0.25rem;
+}
+
+/* Submit button styling */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover-color);
+    border-color: var(--primary-hover-color);
+}

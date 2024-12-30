@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Details</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/variables.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/job-details.css') }}">
+</head>
+<body>
+    <div class="job-detail-modal">
+        <div class="job-detail-header">
+            <h1 class="job-detail-title">{{ job.title }}</h1>
+            <span class="job-detail-status status-{{ job.status.name.lower() }}">{{ job.status.value }}</span>
+        </div>
+        <div class="job-detail-content">
+            <div class="job-detail-description {% if job.description|length > 300 %}long-description{% endif %}">
+                <h2>Description</h2>
+                <p>{{ job.description }}</p>
+            </div>
+            <div class="job-detail-key-info">
+                <div class="key-info-item">
+                    <h4>Budget</h4>
+                    <p>{{ job.budget }}</p>
+                </div>
+                <div class="key-info-item">
+                    <h4>Expected Duration</h4>
+                    <p>{{ job.expected_duration }}</p>
+                </div>
+            </div>
+            <div class="job-detail-meta">
+                <p><strong>Profession:</strong> <span>{{ job.profession }}</span></p>
+                <p><strong>Location:</strong> <span>{{ job.location }}</span></p>
+                <p><strong>Required Skills:</strong> <span>{{ job.required_skills }}</span></p>
+                <p><strong>Posted by:</strong> <span>{{ job.posted_by }}</span></p>
+                <p><strong>Date Posted:</strong> <span>{{ job.date_posted }}</span></p>
+            </div>
+            {% if job.pictures %}
+            <div class="job-detail-pictures">
+                <h2>Job Gallery</h2>
+                <div class="job-detail-gallery">
+                    {% for picture in job.pictures %}
+                    <img src="{{ url_for('static', filename='uploads/' + picture.filename) }}" alt="Job Picture" class="job-detail-image" onclick="showImageModal('{{ url_for('static', filename='uploads/' + picture.filename) }}')">
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+            {% if job.status.value == 'Open' and current_user not in job.applicants %}
+            <form method="POST" action="{{ url_for('job.apply_job', job_id=job.id) }}" class="d-inline">
+                {{ form.hidden_tag() }}
+                <button type="submit" class="btn btn-primary">
+                    <i class="fa fa-paper-plane"></i> Apply
+                </button>
+            </form>
+            {% elif current_user in job.applicants %}
+                <p class="text-success">
+                    <i class="fa fa-check-circle"></i> You have applied for this job
+                </p>
+            {% endif %}
+        </div>
+    </div>
+    
+    
+</body>
+</html>
