@@ -1,0 +1,471 @@
+/* view_jobs.css */
+
+/* Global Styles */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #ececec;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container for all job listings */
+.view-jobs-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Main page title */
+.page-title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+/* Grid layout for job cards */
+.job-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* Individual job card */
+.job-card {
+
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Hover effect for job card */
+.job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Header section of the job card */
+.job-card-header {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+}
+
+/* Job title styling */
+.job-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #333;
+    margin: 0;
+}
+
+/* Status badge common styles */
+.status-badge {
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 200;
+}
+
+/* Status badge specific colors */
+.profession-electrician { color: #FFA000}
+.profession-barber { color: #E91E63}
+.profession-tailor { color: #9C27B0 }
+.profession-plumber { color: #2196F3}
+.profession-cleaner { color: #00BCD4 }
+.profession-gardener { color: #4CAF50}
+.profession-painter { color: #F44336}
+.profession-carpenter { color: #795548 }
+.profession-mechanic { color: #607D8B}
+.profession-driver { color: #FF5722}
+
+/* Default style for any undefined professions */
+.status-badge[class^="profession-"] {
+    background-color: #757575;
+    color: white;
+}
+
+/* Main content area of the job card */
+.job-card-content {
+    padding: 0.5rem 1rem 1rem; 
+    flex-grow: 1;
+}
+
+/* Job description text */
+.job-description {
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+/* Container for job metadata */
+.job-meta {
+    display: grid;
+    
+    align-items: baseline;
+    gap: 1rem;
+    padding: 30px;
+}
+
+/* Individual metadata item */
+.meta-item {
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: auto 1fr;
+    align-items: stretch;
+}
+
+/* Label for metadata item */
+.meta-label {
+    font-weight: 600;
+    color: #333;
+}
+
+/* Value for metadata item */
+.meta-value {
+    color: #666;
+    text-align: right;
+
+}
+
+/* Footer section of the job card */
+.job-card-footer {
+    padding: 1rem;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+
+
+
+/* posted date */
+.post-date {
+    font-size: 0.8rem;
+    color: #666;
+    font-style: italic;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .job-cards-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.filter-container {
+    position: relative;
+    background-image: url('/static/images/filter-background.jpg');
+    background-size: cover;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.filter-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.filter-content {
+    position: relative;
+    z-index: 1;
+    color: white;
+}
+
+.filter-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.filter-inputs select {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.loading-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 2em;
+}
+
+
+/* search bar */
+
+
+/* Updated and new styles */
+.search-job-container {
+    position: relative;
+    height: 500px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/static/images/job_search3.jpg');
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.5s ease-in-out;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.search-job-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.search-job-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: white;
+    text-align: center;
+}
+
+.search-job-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Search form container */
+.search-job-form {
+    width: 80%;
+    max-width: 800px;
+}
+
+/* Container for search input fields and button */
+.search-job-inputs {
+    display: flex;
+    gap: 10px;
+}
+
+.search-job-inputs .form-control {
+    flex: 1;
+    height: 50px;
+    border: none;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+    color: #333; /* Dark text color for visibility */
+    padding: 0 15px; /* Add padding for better readability */
+}
+
+.search-job-inputs .form-control::placeholder {
+    color: #666; /* Placeholder text color */
+}
+
+/* Search button styling */
+.search-job-btn {
+    height: 50px;
+    padding: 0 20px;
+    background-color: #c8830c;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.search-job-btn:hover {
+    background-color: #e67935;
+}
+
+/* Indicators for background image slider */
+.search-job-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+}
+
+.indicator.active {
+    background-color: white;
+}
+
+
+
+
+.title-divider {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #ccc, transparent);
+    margin: 0.5rem 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* CSS */
+.button-62 {
+  background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+  border: 0;
+  border-radius: 12px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2.5;
+  outline: transparent;
+  padding: 0 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+}
+
+.button-62:not([disabled]):focus {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
+
+.button-62:not([disabled]):hover {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
+
+
+
+
+
+
+
+/* Modal styles */
+/* Adjust modal styles if needed */
+/* Job Modal Styles */
+.modal-dialog.modal-lg {
+    max-width: 800px;
+}
+
+.modal-content {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.modal-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+    padding: 1.5rem;
+}
+
+.modal-title {
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.modal-header .close {
+    padding: 1rem;
+    margin: -1rem -1rem -1rem auto;
+    font-size: 2rem;
+    color: #6c757d;
+    opacity: 0.5;
+    transition: opacity 0.15s;
+}
+
+.modal-header .close:hover {
+    opacity: 1;
+}
+
+.modal-body {
+    padding: 2rem;
+}
+
+/* Custom scrollbar for modal content */
+.modal-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Animation for modal opening */
+.modal.fade .modal-dialog {
+    transform: scale(0.8);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.modal.show .modal-dialog {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .modal-dialog.modal-lg {
+        max-width: 95%;
+        margin: 1.75rem auto;
+    }
+
+    .modal-header {
+        padding: 1rem;
+    }
+
+    .modal-body {
+        padding: 1.5rem;
+    }
+}

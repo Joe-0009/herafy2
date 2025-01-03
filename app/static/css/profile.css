@@ -1,0 +1,180 @@
+/* profile.css */
+
+.profile {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Profile Header Section */
+.profile-header-section {
+    background-image: url('/static/images/profile_header.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 80px 0;
+    text-align: center;
+    color: #fff;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.profile-header-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.profile-header-content {
+    position: relative;
+    z-index: 2;
+}
+
+.profile-picture {
+    margin-bottom: 20px;
+}
+
+.profile-picture .profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.profile-picture .profile-img:hover {
+    transform: scale(1.05);
+}
+
+.profile-name {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.profile-profession {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+/* Profile Navigation Tabs */
+.profile-nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.profile-tab-button {
+    background: none;
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    color: var(--secondary-color);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.profile-tab-button::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background-color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.profile-tab-button:hover, .profile-tab-button.active {
+    color: var(--primary-color);
+}
+
+.profile-tab-button:hover::after, .profile-tab-button.active::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Profile Tab Content */
+.profile-tab-content {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.profile-tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Profile Overview */
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+    color: var(--primary-color);
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+/* Add Skill and Experience Links */
+.add-link {
+    color: var(--primary-color);
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.add-link:hover {
+    color: var(--primary-hover-color);
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .profile-nav {
+        flex-wrap: wrap;
+    }
+
+    .profile-tab-button {
+        flex: 1 0 100%;
+        padding: 10px;
+    }
+
+    .profile-name {
+        font-size: 24px;
+    }
+
+    .profile-profession {
+        font-size: 16px;
+    }
+}

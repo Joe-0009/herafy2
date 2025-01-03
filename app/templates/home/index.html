@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="home">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Herafi</h1>
+            <p>Your Trusted Service Connection</p>
+            
+            {% if not current_user.is_authenticated %}
+            <div class="btn-box">
+                <a href="{{ url_for('auth.login') }}" class="btn btn-primary">Login</a>
+                <a href="{{ url_for('auth.sign_up') }}" class="btn btn-secondary">Sign-up</a>
+            </div>
+            {% endif %}
+            
+        </div>
+        <img src="{{ url_for('static', filename='images/hero_image.jpg') }}" alt="Hero Image" class="hero-image">
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-us">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>7iRafi connects you with skilled professionals for a variety of tasks. Our platform ensures a seamless experience from posting a job to getting it done.</p>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>Step 1</h3>
+                    <p>Create an account and log in to start using 7iRafi.</p>
+                </div>
+                <div class="col-md-4">
+                    <h3>Step 2</h3>
+                    <p>Post a job or search for professionals to find the right match for your needs.</p>
+                </div>
+                <div class="col-md-4">
+                    <h3>Step 3</h3>
+                    <p>Communicate, negotiate, and get your job done efficiently and securely.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2>Key Features</h2>
+            <div class="row">
+                <div class="col-md-4 feature">
+                    <img src="{{ url_for('static', filename='images/feature1.jpg') }}" alt="Feature 1" class="feature-image">
+                    <div class="feature-content">
+                        <h3>Job Posting</h3>
+                        <p>Post job listings easily and find the right professionals for your tasks.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 feature">
+                    <img src="{{ url_for('static', filename='images/feature2.jpg') }}" alt="Feature 2" class="feature-image">
+                    <div class="feature-content">
+                        <h3>Profile Management</h3>
+                        <p>Manage your profile, showcase your skills and experience, and get hired.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 feature">
+                    <img src="{{ url_for('static', filename='images/feature3.jpg') }}" alt="Feature 3" class="feature-image">
+                    <div class="feature-content">
+                        <h3>Search Functionality</h3>
+                        <p>Search for workers based on location and profession, and find the best match for your needs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories Section -->
+    <section class="success-stories">
+        <div class="container">
+            <h2>Success Stories</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="story">
+                        <img src="{{ url_for('static', filename='images/success1.jpg') }}" alt="Success Story 1" class="story-image">
+                        <p>"7iRafi connected me with an amazing contractor who transformed my kitchen. Highly recommend!"</p>
+                        <span>- Khalid</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="story">
+                        <img src="{{ url_for('static', filename='images/success2.jpg') }}" alt="Success Story 2" class="story-image">
+                        <p>"Finding freelance gigs has never been easier thanks to 7iRafi. I now have a steady stream of projects."</p>
+                        <span>- Hafida</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="story">
+                        <img src="{{ url_for('static', filename='images/success3.jpg') }}" alt="Success Story 3" class="story-image">
+                        <p>"As a small business owner, 7iRafi has been a game changer for hiring reliable help quickly."</p>
+                        <span>- Abderahman</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <h3>How do I post a job?</h3>
+                <p>Simply create an account, log in, and click on the "Post Job" button to fill out the job details and publish it.</p>
+            </div>
+            <div class="faq-item">
+                <h3>How do I find workers for my job?</h3>
+                <p>Use our search functionality to filter workers based on their location, profession, and skills to find the best match for your needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section class="contact-us">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>If you have any questions or need assistance, please reach out to us.</p>
+            <div class="contact-info">
+                <p>Email: support@7irafi.com</p>
+                <p>Phone: (123) 456-7890</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="call-to-action">
+        <div class="container">
+            <h2>Join 7iRafi Today</h2>
+            <p>Whether you're looking to hire or get hired, 7iRafi is the platform for you.</p>
+            <div class="btn-box">
+                <a href="{{ url_for('auth.sign_up') }}" class="btn btn-primary">Sign Up Now</a>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+{% endblock %}

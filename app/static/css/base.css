@@ -1,0 +1,73 @@
+/* base.css */
+
+/* General styles */
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+}
+
+.navbar-brand img {
+    height: 30px;
+    margin-right: 10px;
+}
+
+/* Navbar styles */
+.navbar-nav .nav-item .nav-link {
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: var(--primary-color);
+}
+
+.navbar-nav .nav-item .nav-link.active {
+    color: var(--primary-color);
+}
+
+/* Footer styles */
+.footer {
+    background-color: #343a40;
+    color: #fff;
+}
+
+.footer-main {
+    background-color: #495057;
+    color: #fff;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer a:hover {
+    color: var(--primary-color);
+}
+
+.footer .social-icons a {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.footer .social-icons i {
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+.footer-bottom {
+    background-color: #343a40;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.footer h5 {
+    margin-bottom: 20px;
+}
+
+.footer ul {
+    padding-left: 0;
+    list-style: none;
+}
